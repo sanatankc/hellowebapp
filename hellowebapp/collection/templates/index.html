@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
-{% load humanize %}
 {% block title %}
     Homepage - {{ block.super }}
 {% endblock title %}
 
 {% block content %}
     <h1>Hello World</h1>
-    <p>There are {{ number|apnumber }} dog{{ number|pluralize }}!</p>
+    {% for i in things %}
+        <a href="{% url 'thing_detail' slug=i.slug %}"><h2>{{i.name}}</h2></a>
+        <p>{{i.description}}</p>
+    {% endfor %}
 {% endblock content %}

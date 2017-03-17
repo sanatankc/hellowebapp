@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^$', views.index, name='home'),
     url(r'^about/$', TemplateView.as_view(template_name='about.html'),
         name='about'),
+    url(r'^(?P<slug>[-\w]+)/$', views.thing_detail, name="thing_detail"),
     url(r'^contact/$', TemplateView.as_view(template_name='contact.html'),
         name='contact')
         ]
